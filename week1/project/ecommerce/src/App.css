@@ -1,0 +1,24 @@
+.cats {
+  font-size: larger;
+  color: blue;
+}
+
+.categoryList {
+  display: flex;
+  margin: auto;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.category {
+  padding: 10px;
+  border: 1px solid #282c34;
+  border-radius: 20px;
+  background-color: lightblue;
+  font-size: large;
+}
+.category:hover {
+  background-color: blue;
+}
