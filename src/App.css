@@ -22,3 +22,6 @@
 .category:hover {
   background-color: blue;
 }
+.products {
+  margin-bottom: 10px;
+}
