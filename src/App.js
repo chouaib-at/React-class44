@@ -1,15 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home";
-import Product from "./Components/Product";
+import Home from "./Pages/Home";
+import Product from "./Pages/Product";
+import Favorites from "./Pages/Favorites";
+import { MyProvider } from "./context/FavoriteContext";
+
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product/:productId" element={<Product />} />
-      </Routes>
-    </Router>
+    <MyProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:productId" element={<Product />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </Router>
+    </MyProvider>
   );
 };
 

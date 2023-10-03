@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./../App.css";
-import { Link } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import ProductCard from "../Components/ProductCard";
 
 function Home() {
   const [categories, setCategories] = useState([]);
@@ -62,7 +63,7 @@ function Home() {
   }, [selectedCategory]);
   return (
     <div className="App">
-      <h1>Categories</h1>
+      <Navbar title="Categories" />
       <div className="categoryList">
         {errorCategories ? (
           <p>error loading categories</p>
@@ -89,6 +90,7 @@ function Home() {
           flexWrap: "wrap",
           width: "100vw",
           gap: "10px",
+          justifyContent:"space-around"
         }}
       >
         {loadingProducts ? (
@@ -98,10 +100,7 @@ function Home() {
         ) : (
           productsList.length > 0 &&
           productsList.map((product) => (
-            <div key={product.id} style={productContainerStyle}>
-              <img src={product.image} alt="product" style={imageStyle} />
-              <Link to={`/product/${product.id}`} style={nameStyle}>{product.title}</Link>
-            </div>
+            <ProductCard product={product}/>
           ))
         )}
       </div>
@@ -125,14 +124,4 @@ const productContainerStyle = {
 
 productContainerStyle[":hover"] = {
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-};
-
-const imageStyle = {
-  width: "200px",
-  height: "200px",
-};
-
-const nameStyle = {
-  fontWeight: "bold",
-  marginTop: "10px",
 };
